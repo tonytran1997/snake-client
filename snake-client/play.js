@@ -1,7 +1,12 @@
-const net = require("net");
-const connect = require('./client');
+const { connect } = require("./client");
+const { setupInput } = require("./input");
 
-const setupInput = function () {
+console.log("Connecting ...");
+connect();
+
+setupInput();
+
+/*const setupInput = function () {
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -13,7 +18,7 @@ const setupInput = function () {
   };
 
   return stdin;
-};
+};*/
 
 /* establishes a connection with the game server
 const connect = function () {
