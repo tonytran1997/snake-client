@@ -3,26 +3,25 @@ const { IP, PORT } = require("./constants");
 
 const connect = function () {
   const conn = net.createConnection({
-    host: '172.24.150.191',  // IP address here,
-    port: 50541, // PORT number here,
+    host: IP,  // IP address here,
+    port: PORT, // PORT number here,
   });
 
-  conn.on("connect", (connect) => {
-    // code that does something when the connection is first established
+  conn.on('connect', (connect) => {
     console.log('Connected to server!')
   });
 
-  conn.on("connect", (connect) => {
-    console.log("Name: T.T")
+  conn.on('connect', (connect) => {
+    conn.write('Name: Tony');
   });
 
-  // interpret incoming data as text
+  conn.on('data', (data) => {
+    console.log('It is over!');
+  });
+
   conn.setEncoding("utf8");
 
   return conn;
 };
 
-console.log("Connecting ...");
-connect();
-
-module.exports = connect;
+module.exports = { connect };

@@ -4,7 +4,7 @@ const { setupInput } = require("./input");
 console.log("Connecting ...");
 connect();
 
-setupInput();
+setupInput(connect());
 
 /*const setupInput = function () {
   const stdin = process.stdin;
@@ -40,5 +40,3 @@ const connect = function () {
 
 console.log("Connecting ...");
 connect();*/
-
-module.exports = connect;

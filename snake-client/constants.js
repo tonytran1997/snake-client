@@ -1,4 +1,4 @@
-const IP = '172.24.150.191';
+const IP = '172.24.151.69';
 const PORT = '50541';
 const MOVE_UP_KEY = 'w';
 const MOVE_LEFT_KEY = 'a';

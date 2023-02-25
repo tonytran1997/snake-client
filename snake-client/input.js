@@ -1,3 +1,5 @@
+const { MOVE_UP_KEY, MOVE_LEFT_KEY, MOVE_DOWN_KEY, MOVE_RIGHT_KEY} = require('./constants');
+
 let connection;
 
 const setupInput = (conn) => {
@@ -6,7 +8,7 @@ const setupInput = (conn) => {
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
-  stdin.on("data", handleUserInput);
+  stdin.on('data', handleUserInput);
 
   const handleUserInput = function (key) {
     // your code here
@@ -22,11 +24,11 @@ const setupInput = (conn) => {
     if (key === MOVE_RIGHT_KEY) {
       conn.write('Move: right');
     }
+    if (key === '\u0003') {
+      process.exit();
+    }
   };
   return stdin;
 };
 
-const messages = {
-  '1': 'Say: You are mine!',
-  '2': 'Say: This is too easy...'
-}
+module.exports = { setupInput };
