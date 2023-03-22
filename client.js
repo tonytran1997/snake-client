@@ -8,18 +8,18 @@ const connect = function () {
   });
 
   conn.on('connect', (connect) => {
-    console.log('Connected to server!')
+    console.log('Snake Game Server says >>');
   });
 
-  conn.on('connect', (connect) => {
+  conn.on('connect', () => {
     conn.write('Name: Tony');
   });
 
   conn.on('data', (data) => {
-    console.log('It is over!');
+    console.log('You are finished.');
   });
 
-  conn.setEncoding("utf8");
+  conn.setEncoding('utf8');
 
   return conn;
 };
