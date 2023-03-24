@@ -1,4 +1,4 @@
-const { MOVE_UP_KEY, MOVE_LEFT_KEY, MOVE_DOWN_KEY, MOVE_RIGHT_KEY } = require('./constants');
+const { MOVE_UP_KEY, MOVE_LEFT_KEY, MOVE_DOWN_KEY, MOVE_RIGHT_KEY, MESSAGES } = require('./constants');
 
 let connection;
 
@@ -10,7 +10,7 @@ const setupInput = function(conn) {
   stdin.resume();
   stdin.on('data', handleUserInput)
   return stdin;
-}  
+};  
 
   const handleUserInput = key => {
     if (key === '\u0003') {
@@ -23,6 +23,8 @@ const setupInput = function(conn) {
       connection.write('Move: down');
     } else if (key === MOVE_RIGHT_KEY) {
       connection.write('Move: right');
+    } else if (MESSAGES[key]) {
+      connection.write(MESSAGES[key]);
     }
   };
 
